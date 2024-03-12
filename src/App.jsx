@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import FourColumnInputGrid from './components/FourColumnInputGrid';
 import CardInformation from './components/CardInformation'
 import FromRegister from './components/FromRegister';
-import InputNumberCandidate from './components/InputNumberCandidate';
 
 function ButtonUsage() {
   return <Button variant="contained">Hello world</Button>;
