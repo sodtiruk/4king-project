@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import Navigation from './components/Navigation';
 import Button from '@mui/material/Button';
+import FourColumnInputGrid from './components/FourColumnInputGrid';
+import CardInformation from './components/CardInformation'
+import FromRegister from './components/FromRegister';
+import InputNumberCandidate from './components/InputNumberCandidate';
 
 function ButtonUsage() {
   return <Button variant="contained">Hello world</Button>;
@@ -16,11 +20,19 @@ function App() {
   return (
     <>
       <div className="container mx-auto px-4">
-        <Navigation /> 
+        <Navigation/> 
         <h1 className='text-6xl underline font-bold'>
           Hello world!
         </h1>
-      <ButtonUsage />
+        <br />
+        <br />
+        <FourColumnInputGrid />
+        <CardInformation />
+        <ButtonUsage />
+        <FromRegister />
+        <br />
+        <br />
+
       </div>
    </>
   )
