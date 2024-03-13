@@ -38,11 +38,11 @@ export default function FromRegister({ numberPersons }) {
 
         // keep all data in array
         // put data in local Storage
-        // const localStorage = []
-        // for (let i=1; i<=numberPersons; i++){
-        //     localStorage.push( {firstname: data.get(`firstname${i}`), lastname: data.get(`lastname${i}`), hobby: data.get(`hobby${i}`)})
-        // }
-        // console.log(localStorage);
+        const localStorage = []
+        for (let i=1; i<=numberPersons; i++){
+            localStorage.push( {firstname: data.get(`firstname${i}`), lastname: data.get(`lastname${i}`), hobby: data.get(`hobby${i}`)})
+        }
+        console.log(localStorage);
 
     };
 
@@ -107,8 +107,6 @@ export default function FromRegister({ numberPersons }) {
                                     </Grid>
                                 </Grid >
                         ))}
-
-
                         <Button
                             type="submit"
                             fullWidth
