@@ -17,25 +17,32 @@ export default function FromRegister({ numberPersons }) {
 
     // const array = ["test1", "test2", "test3"]
     const count = numberPersons
-
     const dataPerson = []
     for (let i = 1; i <= count; i++) {
         dataPerson.push({ firstname: `firstname${i}`, lastname: `lastname${i}`, hobby: `hobby${i}` });
     }
-
     console.log(dataPerson);
 
     const handleSubmit = (event) => {
-
-
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
-            firstname: data.get('firstName'),
-            password: data.get('lastName'),
-            hobby: data.get('hobby'),
-        });
 
+        // log all data person
+        for (let i = 1; i <= numberPersons; i++) {
+            console.log({
+                firstname: data.get(`firstname${i}`),
+                lastname: data.get(`lastname${i}`),
+                hobby: data.get(`hobby${i}`),
+            });
+        }
+
+        // keep all data in array
+        // put data in local Storage
+        // const localStorage = []
+        // for (let i=1; i<=numberPersons; i++){
+        //     localStorage.push( {firstname: data.get(`firstname${i}`), lastname: data.get(`lastname${i}`), hobby: data.get(`hobby${i}`)})
+        // }
+        // console.log(localStorage);
 
     };
 
@@ -59,19 +66,19 @@ export default function FromRegister({ numberPersons }) {
                         ลงทะเบียน
                     </Typography>
                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-                        <Grid container spacing={2}>
-                            {dataPerson.map((value, index) => (
-                                <>
-                                    <Grid item xs={12} key={index}>
-                                        <div >คนที่ {index+1}</div>
+                        {dataPerson.map((value, index) => (
+                                <Grid container spacing={2} key={index}>
+                                    <Grid item xs={12}>
+                                        <p >คนที่ {index + 1}</p>
                                     </Grid>
                                     <Grid item xs={12} sm={6}>
                                         <TextField
                                             autoComplete="given-name"
-                                            name="firstName"
+                                            name={value.firstname}
                                             required
                                             fullWidth
-                                            id="firstName"
+                                            // id="firstName"
+                                            id={`firstName-${index}`} // แก้ id ให้ไม่ซ
                                             label="ชื่อ"
                                             autoFocus
                                         />
@@ -80,9 +87,10 @@ export default function FromRegister({ numberPersons }) {
                                         <TextField
                                             required
                                             fullWidth
-                                            id="lastName"
+                                            // id="lastName"
+                                            id={`lastName-${index}`} // แก้ id ให้ไม่ซ
                                             label="นามสกุล"
-                                            name="lastName"
+                                            name={value.lastname}
                                             autoComplete="family-name"
                                         />
                                     </Grid>
@@ -90,15 +98,17 @@ export default function FromRegister({ numberPersons }) {
                                         <TextField
                                             required
                                             fullWidth
-                                            id="hobby"
+                                            // id="hobby"
+                                            id={`hobby-${index}`} // แก้ id ให้ไม่ซ
                                             label="งานอดิเรก"
-                                            name="hobby"
+                                            name={value.hobby}
                                             autoComplete="text"
                                         />
                                     </Grid>
-                                </>
-                            ))}
-                        </Grid>
+                                </Grid >
+                        ))}
+
+
                         <Button
                             type="submit"
                             fullWidth

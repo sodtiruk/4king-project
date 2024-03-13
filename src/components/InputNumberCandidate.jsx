@@ -15,7 +15,7 @@ function InputNumberCandidate() {
     return (
         <>
             <div className="mt-5">
-                <TextField fullWidth label="จำนวนคนที่จะลงทะเบียน" id="fullWidth" color='error' value={numbersPerson} onChange={handlenumbersPerson}/>
+                <TextField fullWidth label="จำนวนคนที่จะลงทะเบียน" id="fullWidth" color='error' value={numbersPerson} onChange={handlenumbersPerson} />
             </div>
             <FromRegister numberPersons={numbersPerson}/>
 
