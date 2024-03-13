@@ -42,8 +42,9 @@ function ButtonRegister() {
                             Let Google help apps determine location. This means sending anonymous
                             location data to Google, even when no apps are running.
                         </DialogContentText>
+                        <InputNumberCandidate /> 
                     </DialogContent>
-                    <InputNumberCandidate /> 
+
                     {/* dont bring component textfield in compnent dialogcontent */}
                     <DialogActions>
                         <Button onClick={togglePopupClose}>Disagree</Button>

@@ -3,7 +3,6 @@ import Navigation from './components/Navigation';
 import Button from '@mui/material/Button';
 import FourColumnInputGrid from './components/FourColumnInputGrid';
 import CardInformation from './components/CardInformation'
-import FromRegister from './components/FromRegister';
 
 function ButtonUsage() {
   return <Button variant="contained">Hello world</Button>;
@@ -28,7 +27,6 @@ function App() {
         <FourColumnInputGrid />
         <CardInformation />
         <ButtonUsage />
-        <FromRegister />
         <br />
         <br />
 

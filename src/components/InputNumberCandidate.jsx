@@ -1,28 +1,25 @@
 import React, { useState } from 'react'
 import { TextField } from '@mui/material'
-import Box from '@mui/material/Box'
+import FromRegister from './FromRegister';
 
 function InputNumberCandidate() {
 
-    const [count, setCount] = useState(0)
+    const [numbersPerson, setnumbersPerson] = useState(0)
     
-    console.log(count);
+    console.log(numbersPerson);
 
-    const handleCount = (event) => {
-        setCount(event.target.value)
+    const handlenumbersPerson = (event) => {
+        setnumbersPerson(event.target.value)
     }
 
     return (
         <>
-            <Box component="form"
-            sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' },
-            }}
-            noValidate
-            autoComplete="off" 
-            >
-                <TextField fullWidth label="จำนวนคนที่จะลงทะเบียน" id="fullWidth" color='error' value={count} onChange={handleCount}/>
-            </Box>
-            count = {count}
+            <div className="mt-5">
+                <TextField fullWidth label="จำนวนคนที่จะลงทะเบียน" id="fullWidth" color='error' value={numbersPerson} onChange={handlenumbersPerson}/>
+            </div>
+            <FromRegister numberPersons={numbersPerson}/>
+
+            numbersPerson = {numbersPerson}
         </>
     )
 }
