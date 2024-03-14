@@ -65,8 +65,9 @@ export default function FromRegister({ numberPersons }) {
                     <Typography component="h1" variant="h5">
                         ลงทะเบียน
                     </Typography>
-                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         {dataPerson.map((value, index) => (
+                            
                                 <Grid container spacing={2} key={index}>
                                     <Grid item xs={12}>
                                         <p >คนที่ {index + 1}</p>
@@ -106,6 +107,7 @@ export default function FromRegister({ numberPersons }) {
                                         />
                                     </Grid>
                                 </Grid >
+                            
                         ))}
                         <Button
                             type="submit"
