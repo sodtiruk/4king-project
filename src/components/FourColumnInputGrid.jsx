@@ -1,4 +1,5 @@
 import React from 'react';
+import CardInformation from './CardInformation';
 
 const InputCard = ({ title }) => {
   return (
@@ -11,6 +12,20 @@ const InputCard = ({ title }) => {
         className="border rounded-md w-full p-2 focus:outline-none focus:ring focus:border-blue-300"
         placeholder="Enter your text here..."
       />
+
+    <div className='mt-5'>
+      <CardInformation />
+    </div>
+    <div className='mt-5'>
+      <CardInformation />
+    </div>
+    <div className='mt-5'>
+      <CardInformation />
+    </div>
+    <div className='mt-5'>
+      <CardInformation />
+    </div>
+
     </div>
   );
 };

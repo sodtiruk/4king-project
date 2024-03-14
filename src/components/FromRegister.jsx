@@ -13,6 +13,36 @@ import { red, grey } from "@mui/material/colors";
 
 const defaultTheme = createTheme();
 
+
+function minNumberIndex() {
+    if (arguments.length === 0) {
+        return []; // no arg
+    }
+
+    let minIndex = [];
+    let minValue = arguments[0];
+
+    for (let i = 0; i < arguments.length; i++) {
+        if (arguments[i] < minValue) {
+            minIndex = [i];
+            minValue = arguments[i];
+        } else if (arguments[i] === minValue) {
+            minIndex.push(i);
+        }
+    }
+
+    return minIndex;
+}
+
+function randomChoice(array) {
+    if (!Array.isArray(array) || array.length === 0) {
+        return undefined; // array empthy
+    }
+
+    const randomIndex = Math.floor(Math.random() * array.length);
+    return array[randomIndex];
+}
+
 export default function FromRegister({ numberPersons }) {
 
     // const array = ["test1", "test2", "test3"]
@@ -28,21 +58,63 @@ export default function FromRegister({ numberPersons }) {
         const data = new FormData(event.currentTarget);
 
         // log all data person
-        for (let i = 1; i <= numberPersons; i++) {
-            console.log({
-                firstname: data.get(`firstname${i}`),
-                lastname: data.get(`lastname${i}`),
-                hobby: data.get(`hobby${i}`),
-            });
-        }
+        // for (let i = 1; i <= numberPersons; i++) {
+        //     console.log({
+        //         firstname: data.get(`firstname${i}`),
+        //         lastname: data.get(`lastname${i}`),
+        //         hobby: data.get(`hobby${i}`),
+        //     });
+        // }
 
         // keep all data in array
         // put data in local Storage
-        const localStorage = []
+        const arrayDataPerson = []
         for (let i=1; i<=numberPersons; i++){
-            localStorage.push( {firstname: data.get(`firstname${i}`), lastname: data.get(`lastname${i}`), hobby: data.get(`hobby${i}`)})
+            arrayDataPerson.push( {firstname: data.get(`firstname${i}`), lastname: data.get(`lastname${i}`), hobby: data.get(`hobby${i}`)})
         }
-        console.log(localStorage);
+        console.log(arrayDataPerson);
+
+        const dataHouse = ["Prachachuen", "Intrara", "Kanok", "Buranaphon"]
+
+        //school choice
+        const dataPrachachuen = [] // 0
+        const dataIntrara = [] // 1
+        const dataKanok = [] // 2
+        const dataBuranaphon = [] //3
+
+        // 
+        
+        
+
+        arrayDataPerson.forEach(value => {
+            // find least school prachachuen intrara kanok and buranaphon
+            const indexLeastSchool = minNumberIndex(dataPrachachuen.length, dataIntrara.length, dataKanok.length, dataBuranaphon.length)
+            console.log("least =>", indexLeastSchool)
+            
+            const randomSchoolChoice = randomChoice(indexLeastSchool)
+            console.log("===>", randomSchoolChoice)
+
+            if (randomSchoolChoice ===  0) {
+                dataPrachachuen.push(value)
+            }else if (randomSchoolChoice === 1){
+                dataIntrara.push(value) 
+            }else if (randomSchoolChoice === 2){
+                dataKanok.push(value) 
+            }else if(randomSchoolChoice === 3) {
+                dataBuranaphon.push(value)
+            }
+
+        });
+
+        console.log("pachachuen", dataPrachachuen);
+        console.log("intrara", dataIntrara);
+        console.log("kanok", dataKanok);
+        console.log("buranaphon", dataBuranaphon);
+
+        // put data 
+
+        
+
 
     };
 
