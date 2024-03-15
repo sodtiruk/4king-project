@@ -47,7 +47,6 @@ function ButtonRegister() {
 
                     {/* dont bring component textfield in compnent dialogcontent */}
                     <DialogActions>
-                        <Button onClick={togglePopupClose}>Disagree</Button>
                         <Button onClick={togglePopupClose} autoFocus>
                             Agree
                         </Button>

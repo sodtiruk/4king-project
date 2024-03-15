@@ -39,7 +39,6 @@ function randomChoice(array) {
 }
 
 export default function FromRegister({ numberPersons }) {
-
     // const array = ["test1", "test2", "test3"]
     const count = numberPersons
     const dataPerson = []
@@ -70,11 +69,23 @@ export default function FromRegister({ numberPersons }) {
         console.log(arrayDataPerson);
 
 
+        
+        const storagePrachachuen = sessionStorage.getItem('prachachuen');
+        const storageIntrara= sessionStorage.getItem('intrara');
+        const storageKanok= sessionStorage.getItem('kanok');
+        const storageBuranaphon= sessionStorage.getItem('buranaphon');
+
         //school choice
-        const dataPrachachuen = [] // 0
-        const dataIntrara = [] // 1
-        const dataKanok = [] // 2
-        const dataBuranaphon = [] //3
+        let dataPrachachuen = [] // 0
+        let dataIntrara = [] // 1
+        let dataKanok = [] // 2
+        let dataBuranaphon = [] //3
+
+        // what if have data in storage sessiong then convert string to array 
+        storagePrachachuen ? dataPrachachuen = JSON.parse(storagePrachachuen) : dataPrachachuen = []
+        storageIntrara ? dataIntrara = JSON.parse(storageIntrara) : dataIntrara = []
+        storageKanok ? dataKanok = JSON.parse(storageKanok) : dataKanok = []
+        storageBuranaphon ? dataBuranaphon = JSON.parse(storageBuranaphon) : dataBuranaphon = [] 
 
 
         arrayDataPerson.forEach(value => {
@@ -97,46 +108,17 @@ export default function FromRegister({ numberPersons }) {
 
         });
 
+        //output data
         console.log("pachachuen", dataPrachachuen);
         console.log("intrara", dataIntrara);
         console.log("kanok", dataKanok);
         console.log("buranaphon", dataBuranaphon);
 
-        // put data 
-        
-        // check what if data in sesstion storage then get data
-
-        //read data from session storage
-        const storagePrachachuen = sessionStorage.getItem('prachachuen');
-        const storageIntrara= sessionStorage.getItem('intrara');
-        const storageKanok= sessionStorage.getItem('kanok');
-        const storageBuranaphon= sessionStorage.getItem('buranaphon');
-        
-        // if have data in session storage then convert string to array 
-        let dataPrachachuenConvert = []
-        let dataIntraraConvert = []
-        let dataKanokConvert = []
-        let dataBuranaphonConvert = []
-        storagePrachachuen ? dataPrachachuenConvert = JSON.parse(storagePrachachuen) : sessionStorage.setItem('prachachuen', dataPrachachuen)
-        storageIntrara ? dataIntraraConvert = JSON.parse(storageIntrara) : sessionStorage.setItem('intrara', dataIntrara)
-        storageKanok ? dataKanokConvert = JSON.parse(storageKanok) : sessionStorage.setItem('kanok', dataKanok)
-        storageBuranaphon ? dataBuranaphonConvert = JSON.parse(storageBuranaphon) : sessionStorage.setItem('buranaphon', dataBuranaphon)
-
-        // push new data in array each school
-        dataPrachachuenConvert.push(...dataPrachachuen)
-        dataIntraraConvert.push(...dataIntrara)
-        dataKanokConvert.push(...dataKanok)
-        dataBuranaphonConvert.push(...dataBuranaphon)
-
-        // convert array to string and then keep data in sesstionStorage
-        sessionStorage.setItem('prachachuen', JSON.stringify(dataPrachachuenConvert));
-        sessionStorage.setItem('intrara', JSON.stringify(dataIntraraConvert));
-        sessionStorage.setItem('kanok', JSON.stringify(dataKanokConvert));
-        sessionStorage.setItem('buranaphon', JSON.stringify(dataBuranaphonConvert));
-        
-        // bug ตอน เพื่ม อย่าลืม ไปแก้ ให้สุ่ม และ เช็คก่อน โรงเรียนไหน คนน้อยสุดค่อยสุ่มเข้าไปเรียนที่นั้น
-
-
+        // set new sessiong storage 
+        sessionStorage.setItem('prachachuen', JSON.stringify(dataPrachachuen))
+        sessionStorage.setItem('intrara', JSON.stringify(dataIntrara))
+        sessionStorage.setItem('kanok', JSON.stringify(dataKanok))
+        sessionStorage.setItem('buranaphon', JSON.stringify(dataBuranaphon))
 
 
     };
