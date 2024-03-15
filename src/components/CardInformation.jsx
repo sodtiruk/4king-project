@@ -26,37 +26,18 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-
-
 export default function CardInformation( {value} ) {
     const [expanded, setExpanded] = React.useState(false);
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
 
-
-    const [widgets, setWidgets] = React.useState([])
-    console.log("wideget =>", widgets);
-
     const handleOnDrag = (e, widgetType) => {
-        e.dataTransfer.setData("widgetType", widgetType)
+        e.dataTransfer.setData("text/plain", JSON.stringify(value));
     }
-    const handleOnDrop = (e) => {
-        const widgetType = e.dataTransfer.getData("widgetType")
-        console.log("widgetType", widgetType);
-        setWidgets([...widgets, widgetType])
-    }
-    const handleDragOver = (e) => {
-        e.preventDefault()
-    }
-
-
+    
     return (
-        <div className='widgets' draggable onDragStart={(e) => handleOnDrag(e, "Widget A")} onDrop={handleOnDrop} onDragOver={handleDragOver}>
-
-
-
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ maxWidth: 345 }} draggable={true} onDragStart={(e) => handleOnDrag(e, value)}>
                 <CardHeader
                     avatar={
                         <Avatar sx={{ bgcolor: red[700] }} aria-label="recipe">
@@ -104,9 +85,5 @@ export default function CardInformation( {value} ) {
                     </CardContent>
                 </Collapse>
             </Card>
-
-
-
-        </div>
     );
 }

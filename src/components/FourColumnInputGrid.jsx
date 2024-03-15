@@ -8,21 +8,13 @@ const InputCard = ({ title, school }) => {
   useEffect(() => {
     const handleStorageChange = () => {
       let newData = [];
-      // if (school === "prachachuen") {
-      //   newData = JSON.parse(sessionStorage.getItem('prachachuen')) || [];
-      // } else if (school === "intrara") {
-      //   newData = JSON.parse(sessionStorage.getItem('intrara')) || [];
-      // } else if (school === "kanok") {
-      //   newData = JSON.parse(sessionStorage.getItem('kanok')) || [];
-      // } else if (school === "buranaphon") {
-      //   newData = JSON.parse(sessionStorage.getItem('buranaphon')) || [];
-      // }
+      
       newData = JSON.parse(sessionStorage.getItem(school)) || []
 
       setDataSchool(newData);
     };
 
-      window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('storage', handleStorageChange);
 
     return () => {
       window.removeEventListener('storage', handleStorageChange);
@@ -34,8 +26,30 @@ const InputCard = ({ title, school }) => {
     return null;
   }
 
+  const handleOnDrag = (e, value) => {
+    e.dataTransfer.setData("text/plain", JSON.stringify(value));
+  };
+
+  const handleOnDrop = (e) => {
+    const value = JSON.parse(e.dataTransfer.getData("text/plain"));
+    // ทำสิ่งที่ต้องการเมื่อลากและวาง CardInformation ไปยังแต่ละคอลัมน์
+    setDataSchool([...dataSchool, value]);
+
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  const handleOnDragEnd = (e, index) => {
+  // ทำสิ่งที่ต้องการเมื่อลากและวาง CardInformation ลงมาแล้วลบข้อมูลเก่าออก
+    const newDataSchool = dataSchool.filter((_, i) => i !== index);
+    setDataSchool(newDataSchool);
+  };
+
+
   return (
-    <div className="rounded-lg shadow-md p-4 mb-4 bg-gray-900 text-red-700">
+    <div className="rounded-lg shadow-md p-4 mb-4 bg-gray-900 text-red-700" onDrop={handleOnDrop} onDragOver={handleDragOver}>
       <div className="flex justify-center">
         <h2 className="text-lg font-semibold mb-2">{title}</h2>
       </div>
@@ -47,7 +61,7 @@ const InputCard = ({ title, school }) => {
 
 
       {dataSchool.map((value, index) => (
-        <div className='mt-5' key={index}>
+        <div className='mt-5' key={index} draggable={true} onDragStart={(e) => handleOnDrag(e, value)} onDragEnd={(e) => handleOnDragEnd(e, index)}>
           <CardInformation value={value} />
         </div>
       ))}
