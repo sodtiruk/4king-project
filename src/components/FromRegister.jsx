@@ -50,7 +50,6 @@ export default function FromRegister({ numberPersons }) {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-
         // log all data person
         // for (let i = 1; i <= numberPersons; i++) {
         //     console.log({
@@ -59,7 +58,6 @@ export default function FromRegister({ numberPersons }) {
         //         hobby: data.get(`hobby${i}`),
         //     });
         // }
-
         // keep all data in array
         // put data in local Storage
         const arrayDataPerson = []
@@ -68,8 +66,6 @@ export default function FromRegister({ numberPersons }) {
         }
         console.log(arrayDataPerson);
 
-
-        
         const storagePrachachuen = sessionStorage.getItem('prachachuen');
         const storageIntrara= sessionStorage.getItem('intrara');
         const storageKanok= sessionStorage.getItem('kanok');
@@ -86,7 +82,6 @@ export default function FromRegister({ numberPersons }) {
         storageIntrara ? dataIntrara = JSON.parse(storageIntrara) : dataIntrara = []
         storageKanok ? dataKanok = JSON.parse(storageKanok) : dataKanok = []
         storageBuranaphon ? dataBuranaphon = JSON.parse(storageBuranaphon) : dataBuranaphon = [] 
-
 
         arrayDataPerson.forEach(value => {
             // find least school prachachuen intrara kanok and buranaphon
@@ -119,8 +114,6 @@ export default function FromRegister({ numberPersons }) {
         sessionStorage.setItem('intrara', JSON.stringify(dataIntrara))
         sessionStorage.setItem('kanok', JSON.stringify(dataKanok))
         sessionStorage.setItem('buranaphon', JSON.stringify(dataBuranaphon))
-
-
     };
 
     return (
