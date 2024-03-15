@@ -28,19 +28,12 @@ const ExpandMore = styled((props) => {
 
 
 
-export default function CardInformation() {
+export default function CardInformation( {value} ) {
     const [expanded, setExpanded] = React.useState(false);
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
 
-
-    const [people, setPeople] = React.useState([
-        {id: 1, name: "lucky"},
-        {id: 2, name: "pun"},
-        {id: 3, name: "yi"},
-        {id: 4, name: "modem"},
-    ])
 
     const [widgets, setWidgets] = React.useState([])
     console.log("wideget =>", widgets);
@@ -60,6 +53,9 @@ export default function CardInformation() {
 
     return (
         <div className='widgets' draggable onDragStart={(e) => handleOnDrag(e, "Widget A")} onDrop={handleOnDrop} onDragOver={handleDragOver}>
+
+
+
             <Card sx={{ maxWidth: 345 }}>
                 <CardHeader
                     avatar={
@@ -72,8 +68,8 @@ export default function CardInformation() {
                             <MoreVertIcon />
                         </IconButton>
                     }
-                    title="Sutthirak Sutsaenya"
-                    subheader="September 17, 2002"
+                    title={value.firstname + " " + value.lastname}
+                    subheader="xx xx, xx"
                 />
                 <CardContent>
                     <Typography variant="body2" color="text.secondary">
@@ -100,15 +96,17 @@ export default function CardInformation() {
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography paragraph>Method:</Typography>
+                        <Typography paragraph>งานอดิเรก</Typography>
                         <Typography paragraph>
-                            Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
-                            aside for 10 minutes.
+                            {value.hobby}
                         </Typography>
 
                     </CardContent>
                 </Collapse>
             </Card>
+
+
+
         </div>
     );
 }

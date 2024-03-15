@@ -114,6 +114,8 @@ export default function FromRegister({ numberPersons }) {
         sessionStorage.setItem('intrara', JSON.stringify(dataIntrara))
         sessionStorage.setItem('kanok', JSON.stringify(dataKanok))
         sessionStorage.setItem('buranaphon', JSON.stringify(dataBuranaphon))
+
+        window.dispatchEvent(new Event('storage')) 
     };
 
     return (
