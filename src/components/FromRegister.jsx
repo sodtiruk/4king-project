@@ -9,19 +9,16 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Person from "@mui/icons-material/Person";
-import { red, grey } from "@mui/material/colors";
+import { red } from "@mui/material/colors";
 
 const defaultTheme = createTheme();
-
 
 function minNumberIndex() {
     if (arguments.length === 0) {
         return []; // no arg
     }
-
     let minIndex = [];
     let minValue = arguments[0];
-
     for (let i = 0; i < arguments.length; i++) {
         if (arguments[i] < minValue) {
             minIndex = [i];
@@ -30,7 +27,6 @@ function minNumberIndex() {
             minIndex.push(i);
         }
     }
-
     return minIndex;
 }
 
@@ -38,7 +34,6 @@ function randomChoice(array) {
     if (!Array.isArray(array) || array.length === 0) {
         return undefined; // array empthy
     }
-
     const randomIndex = Math.floor(Math.random() * array.length);
     return array[randomIndex];
 }
@@ -74,7 +69,6 @@ export default function FromRegister({ numberPersons }) {
         }
         console.log(arrayDataPerson);
 
-        const dataHouse = ["Prachachuen", "Intrara", "Kanok", "Buranaphon"]
 
         //school choice
         const dataPrachachuen = [] // 0
@@ -82,9 +76,6 @@ export default function FromRegister({ numberPersons }) {
         const dataKanok = [] // 2
         const dataBuranaphon = [] //3
 
-        // 
-        
-        
 
         arrayDataPerson.forEach(value => {
             // find least school prachachuen intrara kanok and buranaphon
@@ -112,8 +103,40 @@ export default function FromRegister({ numberPersons }) {
         console.log("buranaphon", dataBuranaphon);
 
         // put data 
-
         
+        // check what if data in sesstion storage then get data
+
+        //read data from session storage
+        const storagePrachachuen = sessionStorage.getItem('prachachuen');
+        const storageIntrara= sessionStorage.getItem('intrara');
+        const storageKanok= sessionStorage.getItem('kanok');
+        const storageBuranaphon= sessionStorage.getItem('buranaphon');
+        
+        // if have data in session storage then convert string to array 
+        let dataPrachachuenConvert = []
+        let dataIntraraConvert = []
+        let dataKanokConvert = []
+        let dataBuranaphonConvert = []
+        storagePrachachuen ? dataPrachachuenConvert = JSON.parse(storagePrachachuen) : sessionStorage.setItem('prachachuen', dataPrachachuen)
+        storageIntrara ? dataIntraraConvert = JSON.parse(storageIntrara) : sessionStorage.setItem('intrara', dataIntrara)
+        storageKanok ? dataKanokConvert = JSON.parse(storageKanok) : sessionStorage.setItem('kanok', dataKanok)
+        storageBuranaphon ? dataBuranaphonConvert = JSON.parse(storageBuranaphon) : sessionStorage.setItem('buranaphon', dataBuranaphon)
+
+        // push new data in array each school
+        dataPrachachuenConvert.push(...dataPrachachuen)
+        dataIntraraConvert.push(...dataIntrara)
+        dataKanokConvert.push(...dataKanok)
+        dataBuranaphonConvert.push(...dataBuranaphon)
+
+        // convert array to string and then keep data in sesstionStorage
+        sessionStorage.setItem('prachachuen', JSON.stringify(dataPrachachuenConvert));
+        sessionStorage.setItem('intrara', JSON.stringify(dataIntraraConvert));
+        sessionStorage.setItem('kanok', JSON.stringify(dataKanokConvert));
+        sessionStorage.setItem('buranaphon', JSON.stringify(dataBuranaphonConvert));
+        
+        // bug ตอน เพื่ม อย่าลืม ไปแก้ ให้สุ่ม และ เช็คก่อน โรงเรียนไหน คนน้อยสุดค่อยสุ่มเข้าไปเรียนที่นั้น
+
+
 
 
     };

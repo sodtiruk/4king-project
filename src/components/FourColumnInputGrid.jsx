@@ -16,15 +16,9 @@ const InputCard = ({ title }) => {
     <div className='mt-5'>
       <CardInformation />
     </div>
-    <div className='mt-5'>
-      <CardInformation />
-    </div>
-    <div className='mt-5'>
-      <CardInformation />
-    </div>
-    <div className='mt-5'>
-      <CardInformation />
-    </div>
+    
+    
+   
 
     </div>
   );

@@ -16,7 +16,7 @@ function App() {
   }
 // bg-cover bg-center bg-repeat-y h-screen
   return (
-    <div className="bg-repeat" style={{ backgroundImage: "url('https://static.thairath.co.th/media/Dtbezn3nNUxytg04ajZ5Xo4SFI8RW6AkbPn5ILS2vXSQGY.webp')"}}>
+    <div className="bg-repeat bg-cover h-screen bg-center" style={{ backgroundImage: "url('https://static.thairath.co.th/media/Dtbezn3nNUxytg04ajZ5Xo4SFI8RW6AkbPn5ILS2vXSQGY.webp')"}}>
       <div className="container mx-auto px-4">
         <Navigation/> 
         <h1 className='text-6xl underline font-bold'>
