@@ -44,8 +44,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 This project is about the movie '4king', where there are 'n' students who need to be assigned randomly to different schools
 
 features on website:
@@ -98,7 +96,7 @@ Project Link: [https://github.com/sodtiruk/4king-project](https://github.com/sod
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/sodtiruk/4king-project.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/commit-activity/w/sodtiruk/4king-project?style=for-the-badge
 [contributors-url]: https://github.com/sodtiruk/4king-project/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/sodtiruk/4king-project.svg?style=for-the-badge
 [forks-url]: https://github.com/sodtiruk/4king-project/network/members
