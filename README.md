@@ -85,7 +85,7 @@ Please read the installation guide carefully.
 5. Start the project with the following command.
 Finally, you can go to this link directly: http://localhost:5173/
 
-https://main--playful-genie-fe1d6e.netlify.app/
+WEBSITE DEPLOY https://main--playful-genie-fe1d6e.netlify.app/
 
 
 <!-- CONTACT -->
