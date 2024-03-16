@@ -26,6 +26,18 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
+const StyledCard = styled(Card)`
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease-in-out;
+    &:hover {
+        background-color: #f0f0f0;
+        border-color: #ccc;
+        transition: border-color 0.3s ease-in-out; /* เพิ่ม transition เพื่อให้การเปลี่ยนแปลงของ border-color เกิดอย่างนุ่มนวล */
+        border: 2px solid red;
+    }
+`;
+
+
 export default function CardInformation( {value} ) {
     const [expanded, setExpanded] = React.useState(false);
     const handleExpandClick = () => {
@@ -37,7 +49,7 @@ export default function CardInformation( {value} ) {
     }
     
     return (
-            <Card sx={{ maxWidth: 345 }} draggable={true} onDragStart={(e) => handleOnDrag(e, value)}>
+            <StyledCard sx={{ maxWidth: 345 }} draggable={true} onDragStart={(e) => handleOnDrag(e, value)}>
                 <CardHeader
                     avatar={
                         <Avatar sx={{ bgcolor: red[700] }} aria-label="recipe">
@@ -84,6 +96,6 @@ export default function CardInformation( {value} ) {
 
                     </CardContent>
                 </Collapse>
-            </Card>
+            </StyledCard>
     );
 }

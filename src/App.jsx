@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import Button from '@mui/material/Button';
 import FourColumnInputGrid from './components/FourColumnInputGrid';
 import CardInformation from './components/CardInformation'
+import Footer from './components/Footer';
 
 function ButtonUsage() {
   return <Button variant="contained">Hello world</Button>;
@@ -25,12 +26,9 @@ function App() {
         <br />
         <br />
         <FourColumnInputGrid />
-        <ButtonUsage />
-        <br />
-        <br />
-
       </div>
    </div>
+
   )
 }
 

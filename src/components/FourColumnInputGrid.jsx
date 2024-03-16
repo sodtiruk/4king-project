@@ -34,6 +34,12 @@ const InputCard = ({ title, school }) => {
     const value = JSON.parse(e.dataTransfer.getData("text/plain"));
     // ทำสิ่งที่ต้องการเมื่อลากและวาง CardInformation ไปยังแต่ละคอลัมน์
     setDataSchool([...dataSchool, value]);
+  
+    // อัปเดตข้อมูลของคอลัมน์ที่เพิ่มข้อมูลเข้าไปใหม่ใน sessionStorage
+    const newDataSchool = JSON.parse(sessionStorage.getItem(school)) || [];
+    newDataSchool.push(value);
+    sessionStorage.setItem(school, JSON.stringify(newDataSchool));
+    console.log("value ==>", value);
 
   };
 
@@ -43,10 +49,16 @@ const InputCard = ({ title, school }) => {
 
   const handleOnDragEnd = (e, index) => {
   // ทำสิ่งที่ต้องการเมื่อลากและวาง CardInformation ลงมาแล้วลบข้อมูลเก่าออก
-    const newDataSchool = dataSchool.filter((_, i) => i !== index);
+    const newDataSchool = dataSchool.filter((_, i) => i !== index); //ข้อมูลก่อนออกแต่ละ column
     setDataSchool(newDataSchool);
+
+    // อัพเดตข้อมูลเฉพาะ column sessionStorage เก่า
+    console.log("new data School =>", newDataSchool);
+    sessionStorage.setItem(school, JSON.stringify(newDataSchool));
+    
   };
 
+  console.log("data school ===>", dataSchool)
 
   return (
     <div className="rounded-lg shadow-md p-4 mb-4 bg-gray-900 text-red-700" onDrop={handleOnDrop} onDragOver={handleDragOver}>
