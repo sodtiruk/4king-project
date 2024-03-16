@@ -65,12 +65,6 @@ const InputCard = ({ title, school }) => {
       <div className="flex justify-center">
         <h2 className="text-lg font-semibold mb-2">{title}</h2>
       </div>
-      <input
-        type="text"
-        className="border rounded-md w-full p-2 focus:outline-none focus:ring focus:border-blue-300"
-        placeholder="Enter your text here..."
-      />
-
 
       {dataSchool.map((value, index) => (
         <div className='mt-5' key={index} draggable={true} onDragStart={(e) => handleOnDrag(e, value)} onDragEnd={(e) => handleOnDragEnd(e, index)}>
