@@ -4,8 +4,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -94,7 +92,7 @@ Finally, you can go to this link directly: http://localhost:5173/
 
 <!-- CONTACT -->
 ## Contact
-Sutthirak Sutsaenya - [@your_twitter](https://www.facebook.com/SutthirakORLucky/) - sutsaenya_s@silpakorn.edu
+Sutthirak Sutsaenya - [@Facebook](https://www.facebook.com/SutthirakORLucky/) - sutsaenya_s@silpakorn.edu
 Project Link: [https://github.com/sodtiruk/4king-project](https://github.com/sodtiruk/4king-project)
 
 
@@ -102,11 +100,11 @@ Project Link: [https://github.com/sodtiruk/4king-project](https://github.com/sod
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/sodtiruk/4king-project.svg?style=for-the-badge
 [contributors-url]: https://github.com/sodtiruk/4king-project/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/sodtiruk/4king-project.svg?style=for-the-badge
+[forks-url]: https://github.com/sodtiruk/4king-project/network/members
+[stars-shield]: https://img.shields.io/github/stars/sodtiruk/4king-project.svg?style=for-the-badge
+[stars-url]: https://github.com/sodtiruk/4king-project/stargazers
+[issues-shield]: https://img.shields.io/github/issues/sodtiruk/4king-project.svg?style=for-the-badge
 [issues-url]: https://github.com/othneildrew/Best-README-Template/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
