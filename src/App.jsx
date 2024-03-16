@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <div className="bg-repeat bg-cover bg-center h-screen" style={{ backgroundImage: "url('https://static.thairath.co.th/media/Dtbezn3nNUxytg04ajZ5Xo4SFI8RW6AkbPn5ILS2vXSQGY.webp')" }}>
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 mt-20">
           <Navigation /> 
           <FourColumnInputGrid />
         </div>

@@ -39,7 +39,7 @@ function ButtonRegister() {
                     </DialogTitle>
                     <DialogContent>
                         <DialogContentText id="alert-dialog-description">
-                            เว็บไซต์ของเราสามารถลากรายชื่อของอีกโรงเรียนไปอีกโรงเรียนได้เลยในกรณีทีต้องการแก้ไข
+                            เว็บไซต์ของเราสามารถลากรายชื่อของอีกโรงเรียนไปอีกโรงเรียนได้เลยในกรณีทีต้องการแก้ไข ถ้าต้องการลบสามารถลากทิ้งได้เลย
                         </DialogContentText>
                         <InputNumberCandidate /> 
                     </DialogContent>
